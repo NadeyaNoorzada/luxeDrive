@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+
+  --color-luxury-black: #0a0a0a;
+  --color-luxury-dark: #111111;
+  --color-luxury-darker: #050505;
+  --color-luxury-gray: #1a1a1a;
+  --color-luxury-mid: #2a2a2a;
+  --color-luxury-light: #888888;
+  --color-luxury-border: #222222;
+  --color-gold: #d4a853;
+  --color-gold-light: #f0d080;
+  --color-gold-dark: #b8922e;
+  --color-silver: #c0c0c0;
+  --color-platinum: #e5e4e2;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-luxury-black);
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-luxury-dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-luxury-black);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light), var(--color-gold-dark));
+  }
+
+  .dark-gradient {
+    background: linear-gradient(180deg, var(--color-luxury-black) 0%, var(--color-luxury-darker) 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-border {
+    border: 1px solid rgba(212, 168, 83, 0.3);
+  }
+
+  .gold-shadow {
+    box-shadow: 0 0 20px rgba(212, 168, 83, 0.15), 0 0 40px rgba(212, 168, 83, 0.05);
+  }
+
+  .luxury-card {
+    background: linear-gradient(145deg, rgba(17, 17, 17, 0.9), rgba(10, 10, 10, 0.95));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .luxury-card:hover {
+    border-color: rgba(212, 168, 83, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 168, 83, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 25%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.03) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(10, 10, 10, 0.95) 0%,
+      rgba(10, 10, 10, 0.7) 50%,
+      rgba(212, 168, 83, 0.08) 100%
+    );
+  }
+
+  .stats-glow {
+    box-shadow: 0 0 30px rgba(212, 168, 83, 0.06);
+  }
+
+  .input-luxury {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .input-luxury:focus {
+    outline: none;
+    border-color: rgba(212, 168, 83, 0.5);
+    box-shadow: 0 0 20px rgba(212, 168, 83, 0.08);
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+    color: var(--color-luxury-black);
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 168, 83, 0.3);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(212, 168, 83, 0.3);
+    color: var(--color-gold);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-ghost:hover {
+    background: rgba(212, 168, 83, 0.1);
+    border-color: var(--color-gold);
+  }
+}
+
+html.light-mode body {
+  background-color: #f5f5f0;
+  color: #1a1a1a;
+}
+
+html.light-mode .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html.light-mode .glass-light {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html.light-mode .luxury-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 240, 0.98));
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html.light-mode .luxury-card:hover {
+  border-color: rgba(212, 168, 83, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 30px rgba(212, 168, 83, 0.06);
+}
+
+html.light-mode .input-luxury {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #1a1a1a;
+}
+
+html.light-mode .input-luxury:focus {
+  border-color: rgba(212, 168, 83, 0.6);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.1);
+}
+
+html.light-mode .shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.03) 25%,
+    rgba(0, 0, 0, 0.06) 50%,
+    rgba(0, 0, 0, 0.03) 75%
+  );
+}
+
+html.light-mode select option {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+html.light-mode .hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(212, 168, 83, 0.1) 100%
+  );
+}
+
+html.light-mode .stats-glow {
+  box-shadow: 0 0 30px rgba(212, 168, 83, 0.1);
+}
+
+html.light-mode h1:not(.text-gradient):not(.keep-color),
+html.light-mode h2:not(.text-gradient):not(.keep-color),
+html.light-mode h3:not(.text-gradient):not(.keep-color),
+html.light-mode h4:not(.text-gradient):not(.keep-color) {
+  color: #1a1a1a;
+}
+
+html.light-mode p, html.light-mode span, html.light-mode div {
+  &.text-white {
+    color: #1a1a1a !important;
+  }
+  &.text-white\/40 {
+    color: rgba(0, 0, 0, 0.4) !important;
+  }
+  &.text-white\/50 {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  &.text-white\/60 {
+    color: rgba(0, 0, 0, 0.6) !important;
+  }
+  &.text-white\/90 {
+    color: rgba(0, 0, 0, 0.9) !important;
+  }
+  &.text-white\/30 {
+    color: rgba(0, 0, 0, 0.3) !important;
+  }
+  &.text-white\/20 {
+    color: rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+html.light-mode nav,
+html.light-mode footer {
+  &.bg-luxury-black\/90 {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+  &.bg-luxury-darker {
+    background: #f0f0eb !important;
+  }
+}
+
+html.light-mode .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light-mode .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light-mode .bg-luxury-dark {
+  background-color: #ffffff !important;
+}
+
+html.light-mode .bg-luxury-black {
+  background-color: #f5f5f0 !important;
+}
+
+html.light-mode .bg-luxury-black\/90 {
+  background-color: rgba(245, 245, 240, 0.95) !important;
+}
+
+html.light-mode .bg-luxury-black\/60 {
+  background-color: rgba(245, 245, 240, 0.6) !important;
+}
+
+html.light-mode .dark-gradient {
+  background: linear-gradient(180deg, #f5f5f0 0%, #ffffff 100%);
+}
+
+html.light-mode ::-webkit-scrollbar-track {
+  background: #e8e8e3;
+}
+
+html.light-mode ::selection {
+  background: var(--color-gold);
+  color: #ffffff;
+}
+
+html.light-mode .text-white\/\[0\.4\] {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+html.light-mode .bg-white\/5 {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+html.light-mode .bg-white\/\[0\.03\] {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+html.light-mode .text-white {
+  color: #1a1a1a !important;
+}
+
+html.light-mode .bg-luxury-black\/\[0\.9\] {
+  background: rgba(245, 245, 240, 0.95) !important;
+}
+
+html.light-mode .btn-ghost {
+  color: var(--color-gold-dark);
+}
+
+html.light-mode .text-gold {
+  color: var(--color-gold-dark) !important;
+}
