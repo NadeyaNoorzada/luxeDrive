@@ -47,11 +47,12 @@
 
 | Page | Preview |
 |------|---------|
-| **Home** | Hero + Featured Cars + Trust badges |
-| **Inventory** | Search, filter by brand, sort, paginated grid |
-| **Car Details** | Image gallery, specs grid, add to cart |
-| **Cart** | Slide-out drawer + full cart page |
-| **Settings** | Theme toggle, grid/list layout, language picker |
+| **Home** | ![Home](screenshots/home.png) |
+| **Inventory** | ![Inventory](screenshots/inventory.png) |
+| **Car Details** | ![Car Details](screenshots/details.png) |
+| **Cart** | ![Cart](screenshots/cart.png) |
+| **Settings** | ![Settings](screenshots/settings.png) |
+| **Mobile** | ![Mobile](screenshots/mobile.png) |
 
 ---
 
@@ -131,7 +132,6 @@ export const useCars = (page = 1, limit = 12) => {
 ```
 
 ---
-
 
 ## 🚀 Installation
 
